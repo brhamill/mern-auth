@@ -8,8 +8,8 @@ import 'react-toastify/dist/ReactToastify.min.css';
 const Activate = ({ match }) => {
   const [values, setValues] = useState({
     name: '',
-    token: '',
-    show: true
+    token: ''
+    // show: true
   });
 
   useEffect(() => {
@@ -19,9 +19,11 @@ const Activate = ({ match }) => {
     if (token) {
       setValues({ ...values, name, token });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const { name, token, show } = values;
+  // const { name, token, show } = values;
+  const { name, token } = values;
 
   const clickSubmit = event => {
     // event.preventDefault();
@@ -33,8 +35,8 @@ const Activate = ({ match }) => {
       .then(response => {
         console.log('ACCOUNT ACTIVATION SUCCESS', response);
         setValues({
-          ...values,
-          show: false
+          ...values
+          // show: false
         });
         toast.success(response.data.message);
       })
