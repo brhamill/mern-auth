@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Layout from '../core/Layout';
 import axios from 'axios';
 import { isAuth } from './helpers';
@@ -93,6 +93,13 @@ const Signup = () => {
         {isAuth() ? <Redirect to='/' /> : null}
         <h1 className='pd-5 text-center'>Signup</h1>
         {signupForm()}
+        <br/>
+        <Link
+          to='/auth/password/forgot'
+          className='btn btn-sm btn-outline-danger'
+        >
+          Forgot Password
+        </Link>
       </div>
     </Layout>
   );
